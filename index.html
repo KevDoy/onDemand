@@ -6,14 +6,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<title>Title</title>
+	<title>Trenta Movies</title>
 	<!-- Bootstrap -->
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700;900&display=swap" rel="stylesheet">
 	<link rel="icon" type="image/png" href="favicon.png">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/css.css">
-	<meta property="og:image" content="og.jpg" />
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,11 +60,8 @@
 		</section>
 		<section>
 			<div class="container">
-				<div class="row hero ">
-					<div class="col feature">
-						<a href="https://www.youtube.com/watch?v=cEepiE_F3Xw">
-							<img src="https://img.youtube.com/vi/cEepiE_F3Xw/maxresdefault.jpg" class="img-fluid">
-						</a>
+				<div class="row hero">
+					<div class="col feature" id="hero">
 					</div>
 				</div>
 				<div class="row">
@@ -80,57 +76,62 @@
 						<h4>Popular This Week</h4>
 					</div>
 				</div>
-				<div class="row mt-3">
-					<div class="col">
-						<a href="https://www.youtube.com/watch?v=oiF1dHVcqM8">
-							<img src="https://img.youtube.com/vi/oiF1dHVcqM8/hqdefault.jpg" class="img-fluid">
-						</a>
-					</div>
-					<div class="col">
-						<a href="https://www.youtube.com/watch?v=LiDDlaJYep8">
-							<img src="https://img.youtube.com/vi/LiDDlaJYep8/hqdefault.jpg" class="img-fluid">
-						</a>
-					</div>
-					<div class="col">
-						<a href="https://www.youtube.com/watch?v=LQDm8xCijYk">
-							<img src="https://img.youtube.com/vi/LQDm8xCijYk/hqdefault.jpg" class="img-fluid">
-						</a>
-					</div>
-					<div class="col">
-						<a href="https://www.youtube.com/watch?v=E1iqGiX0lSg">
-							<img src="https://img.youtube.com/vi/E1iqGiX0lSg/hqdefault.jpg" class="img-fluid">
-						</a>
-					</div>
-				</div>
-				<div class="row mt-5">
-					<div class="col">
-						<a href="https://www.youtube.com/watch?v=foxpYI2C3iI">
-							<img src="https://img.youtube.com/vi/foxpYI2C3iI/hqdefault.jpg" class="img-fluid">
-						</a>
-					</div>
-					<div class="col">
-						<a href="https://www.youtube.com/watch?v=apHd04BtYaI">
-							<img src="https://img.youtube.com/vi/apHd04BtYaI/hqdefault.jpg" class="img-fluid">
-						</a>
-					</div>
-					<div class="col">
-						<a href="https://www.youtube.com/watch?v=hLLH-8lPWQs">
-							<img src="https://img.youtube.com/vi/hLLH-8lPWQs/hqdefault.jpg" class="img-fluid">
-						</a>
-					</div>
-					<div class="col">
-						<a href="https://www.youtube.com/watch?v=yBIPcwJ03V4">
-							<img src="https://img.youtube.com/vi/yBIPcwJ03V4/hqdefault.jpg" class="img-fluid">
-						</a>
-					</div>
+				<div class="row mt-3" id="featured">
+					
+				
 				</div>
 			</div>
 		</section>
 
 	</div>
-
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins)-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/1.4.0/json2html.min.js"></script>
+<script type="text/javascript">
+			var data;
+			$.getJSON("https://kevdoy.github.io/trenta-movies/data/hero.json", function (json) {
+				data = json;
+				var transform = {
+					"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "html": [
+						{
+							"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/maxresdefault.jpg", "class": "img-fluid", "alt":"${movietitle}"
+								
+								}
+							]
+
+				};
+				$(function () {
+
+					//Create the list
+					$('#hero').json2html(data, transform);
+				});
+			});
+
+		</script>
+<script type="text/javascript">
+			var data;
+			$.getJSON("https://kevdoy.github.io/trenta-movies/data/popular.json", function (json) {
+				data = json;
+				var transform = {
+					"<>": "div", "class": "col-3", "html": [
+						{
+							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "class": "featured", "html": [
+								{
+									"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/hqdefault.jpg", "class": "img-fluid", "alt":"${movietitle}" }	
+									]
+								}
+							]
+
+				};
+				$(function () {
+
+					//Create the list
+					$('#featured').json2html(data, transform);
+				});
+			});
+
+		</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
+
 </html>
