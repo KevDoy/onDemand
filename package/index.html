@@ -92,7 +92,7 @@
 			$.getJSON("https://kevdoy.github.io/trenta-movies/data/hero.json", function (json) {
 				data = json;
 				var transform = {
-					"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "html": [
+					"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "onclick":"_blank", "html": [
 						{
 							"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/maxresdefault.jpg", "class": "img-fluid", "alt":"${movietitle}"
 								
@@ -132,6 +132,25 @@
 
 		</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	
+<script>
+if (document.readyState != "complete") {
+  document.addEventListener('DOMContentLoaded', function() {
+    prepareTags()
+  }, false);
+} else {
+  prepareTags();
+}
+
+function prepareTags(){
+  aTags = document.getElementsByTagName("a");
+  for (var i = 0; i < aTags.length; i++) {
+    aTags[i].setAttribute("onclick","require('shell').openExternal('" + aTags[i].href + "')");
+    aTags[i].href = "#";
+  }
+  return false;
+}
+	</script>
 </body>
 
 </html>
