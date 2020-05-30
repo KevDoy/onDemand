@@ -78,8 +78,25 @@
 					</div>
 				</div>
 				<div class="row mt-3" id="featured">
+				</div>
+				<div class="row">
+					<div class="col line"></div>
+				</div>
+			</div>
+		</section>
+		<section>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<h4>Top Selling</h4>
+					</div>
+				</div>
+				<div class="row mt-3" id="topselling">
 					
 				
+				</div>
+				<div class="row">
+					<div class="col line"></div>
 				</div>
 			</div>
 		</section>
@@ -179,6 +196,29 @@
 
 					//Create the list
 					$('#featured').json2html(data, transform);
+				});
+			});
+
+		</script>
+<script type="text/javascript">
+			var data;
+			$.getJSON("https://kevdoy.github.io/onDemand/data/topselling.json", function (json) {
+				data = json;
+				var transform = {
+					"<>": "div", "class": "col-4", "html": [
+						{
+							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "class": "featured", "html": [
+								{
+									"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/hqdefault.jpg", "class": "img-fluid", "alt":"${movietitle}" }	
+									]
+								}
+							]
+
+				};
+				$(function () {
+
+					//Create the list
+					$('#topselling').json2html(data, transform);
 				});
 			});
 
