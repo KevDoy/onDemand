@@ -23,7 +23,10 @@ img:hover {
 	opacity: 0.8;
 	transition: 0.3s;
 }
-:nth-child(n+5) {
+.featured:nth-child(n+5) {
+	margin-top: 20px;
+}
+.topseller:nth-child(n+4) {
 	margin-top: 20px;
 }
 

@@ -182,9 +182,9 @@
 			$.getJSON("https://kevdoy.github.io/onDemand/data/popular.json", function (json) {
 				data = json;
 				var transform = {
-					"<>": "div", "class": "col-3", "html": [
+					"<>": "div", "class": "col-3 featured", "html": [
 						{
-							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "class": "featured", "html": [
+							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "html": [
 								{
 									"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/hqdefault.jpg", "class": "img-fluid", "alt":"${movietitle}" }	
 									]
@@ -205,9 +205,9 @@
 			$.getJSON("https://kevdoy.github.io/onDemand/data/topselling.json", function (json) {
 				data = json;
 				var transform = {
-					"<>": "div", "class": "col-4", "html": [
+					"<>": "div", "class": "col-4 topseller", "html": [
 						{
-							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "class": "featured", "html": [
+							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "html": [
 								{
 									"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/hqdefault.jpg", "class": "img-fluid", "alt":"${movietitle}" }	
 									]
