@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* CSS Document */
+h1, h2, h3, h4 {
+	font-family: 'Roboto', sans-serif;
+	color: #0e0e0e;
+	font-weight: 700;
+}
+.headline {
+	margin: 40px 0 0 0;
+}
+.line {
+	border-bottom: 1px solid #e5e5e5;
+	margin: 20px 0;
+}
+img {
+	border-radius: 10px;
+	box-shadow: 0 5px 20px 0 rgba(0,0,0,0.5);
+	transition: 0.3s;
+}
+img:hover {
+	opacity: 0.8;
+	transition: 0.3s;
+}
