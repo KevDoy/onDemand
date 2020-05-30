@@ -100,19 +100,18 @@
       </div>
       <div class="modal-body">
        <a href="#" data-dismiss="modal" aria-label="Close" class="countryselect"><i class="united states flag"></i> United States of America</a>
-		<br>More Countries coming later.
+		<br><i><small>More Countries coming later.</small></i>
       </div>
 
     </div>
   </div>
 </div>
 					</div>
-					<div class="col text-center">
+					<!-- <div class="col text-center">
 						Data by Letterboxd
 					</div>
 					<div class="col text-right">
 						Service: <a href="#" data-toggle="modal" data-target="#servicemodal" id="currentservice">YouTube</a>
-<!-- Modal -->
 <div class="modal fade text-center" id="servicemodal" tabindex="-1" role="dialog" aria-labelledby="servicemodal" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -123,14 +122,14 @@
         </button>
       </div>
       <div class="modal-body">
-       <a href="#" data-dismiss="modal" aria-label="Close" class="serviceselect" id="youtube">YouTube</a><br>
-       <a href="#" data-dismiss="modal" aria-label="Close" class="serviceselect" id="amazon">Amazon</a>
+       <a href="#" onclick="$.cookie('service', 'YouTube');location.reload();" data-dismiss="modal" aria-label="Close" class="serviceselect" id="youtube">YouTube</a><br>
+       <a href="#" onclick="$.cookie('service', 'Amazon');location.reload();" data-dismiss="modal" aria-label="Close" class="serviceselect" id="amazon">Amazon</a>
       </div>
 
     </div>
   </div>
 </div>
-				</div>
+				</div>-->
 			</div>
 			</div>
 				
@@ -186,14 +185,10 @@
 		</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/jquery.cookie-1.4.1.min.js"></script>
-<script>
-	jQuery('#amazon').click(function(){
-	$.cookie("service", "amazon");
-	}
-	jQuery('#youtube').click(function(){
-	$.cookie("service", null);
-	}
-	</script>
 </body>
+<script>
+	var service = $.cookie("service");
+	$('#currentservice').text(service);
 
+	</script>
 </html>
