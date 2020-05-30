@@ -89,7 +89,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/1.4.0/json2html.min.js"></script>
 <script type="text/javascript">
 			var data;
-			$.getJSON("https://kevdoy.github.io/trenta-movies/data/hero.json", function (json) {
+			$.getJSON("https://kevdoy.github.io/onDemand//data/hero.json", function (json) {
 				data = json;
 				var transform = {
 					"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "onclick":"_blank", "html": [
@@ -110,7 +110,7 @@
 		</script>
 <script type="text/javascript">
 			var data;
-			$.getJSON("https://kevdoy.github.io/trenta-movies/data/popular.json", function (json) {
+			$.getJSON("https://kevdoy.github.io/onDemand/data/popular.json", function (json) {
 				data = json;
 				var transform = {
 					"<>": "div", "class": "col-3", "html": [
