@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<link href="css/addons/flag.min.css" rel="stylesheet">
+	<link href="css/lity.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/css.css">
 
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -161,7 +162,7 @@
 			$.getJSON("https://kevdoy.github.io/onDemand//data/hero.json", function (json) {
 				data = json;
 				var transform = {
-					"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "onclick":"_blank", "html": [
+					"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "onclick":"_blank", "data-lity":"", "html": [
 						{
 							"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/maxresdefault.jpg", "class": "img-fluid", "alt":"${movietitle}"
 								
@@ -184,7 +185,7 @@
 				var transform = {
 					"<>": "div", "class": "col-3 featured", "html": [
 						{
-							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "html": [
+							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "data-lity":"", "html": [
 								{
 									"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/hqdefault.jpg", "class": "img-fluid", "alt":"${movietitle}" }	
 									]
@@ -207,7 +208,7 @@
 				var transform = {
 					"<>": "div", "class": "col-4 topseller", "html": [
 						{
-							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "html": [
+							"<>": "a", "href":"https://www.youtube.com/watch?v=${movieid}", "data-lity":"", "html": [
 								{
 									"<>": "img", "src": "https://img.youtube.com/vi/${movieid}/hqdefault.jpg", "class": "img-fluid", "alt":"${movietitle}" }	
 									]
@@ -225,6 +226,7 @@
 		</script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="js/jquery.cookie-1.4.1.min.js"></script>
+<script src="js/lity.min.js"></script>
 </body>
 <script>
 	var service = $.cookie("service");
